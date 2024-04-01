@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/TextTool/static/js/main.c3174daa.js",
+    "index.html": "/TextTool/index.html",
+    "main.c3174daa.js.map": "/TextTool/static/js/main.c3174daa.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c3174daa.js"
+  ]
+}
