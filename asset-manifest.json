@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/TextTool/static/js/main.c0fe9c76.js",
+    "main.js": "/TextTool/static/js/main.af52a1a4.js",
     "index.html": "/TextTool/index.html",
-    "main.c0fe9c76.js.map": "/TextTool/static/js/main.c0fe9c76.js.map"
+    "main.af52a1a4.js.map": "/TextTool/static/js/main.af52a1a4.js.map"
   },
   "entrypoints": [
-    "static/js/main.c0fe9c76.js"
+    "static/js/main.af52a1a4.js"
   ]
 }
