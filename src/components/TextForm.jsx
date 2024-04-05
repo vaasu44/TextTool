@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 export default function TextForm(props) {
+
   const [text, setText] = useState("");
   const handleClick = () => {
     //console.log("uppercase clicked");
@@ -48,7 +49,7 @@ export default function TextForm(props) {
   return (
     <>
     <div className='container' style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
-      <h1>{props.heading}</h1>
+      <h2 className='py-2'>{props.heading}</h2>
       <div className=" mb-3">
           <textarea className="form-control" id="myBox" rows="8" value={text} onChange={(e) => setText(e.target.value)}
             placeholder='Enter your text here' style={{ backgroundColor: props.mode === 'light' ? 'white' : 'black' ,
@@ -57,18 +58,22 @@ export default function TextForm(props) {
           ></textarea>
         {/* <p>{ text}</p> */}
       </div>
-        <button className="btn btn-primary mx-2" onClick={handleClick}>Convert to uppercase</button>
-        <button className="btn btn-primary mx-3" onClick={handleClickLower}>Convert to lowercase</button>
-        <button className="btn btn-primary mx-3" onClick={handleClear}>Clear text</button>
-        <button className="btn btn-primary mx-3" onClick={handleClickCap}>Capitalize text</button>
-        <button className="btn btn-primary mx-3" onClick={handleClickInverse}>Reverse text</button>
-        <button className="btn btn-primary mx-3" onClick={handleClickSpeak}>Speak text</button>
-        <button className="btn btn-primary mx-3" onClick={handleCopy}>Copy text</button>
+        <button disabled={text.length===0}  className="btn btn-primary mx-2 my-1" onClick={handleClick}>Convert to uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleClickLower}>Convert to lowercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleClear}>Clear text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleClickCap}>Capitalize text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleClickInverse}>Reverse text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleClickSpeak}>Speak text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-3 my-1" onClick={handleCopy}>Copy text</button>
       </div>
       <div className="container my-4" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
         <h1>Your text summary</h1>
-        <p><b>{text.split(" ").length} </b>words and <b>{text.length}</b> characters</p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+        <p><b>{text.split(" ").filter((ele) => {
+          return ele.length!==0
+        }).length} </b>words and <b>{text.length}</b> characters</p>
+        <p>{0.008 * text.split(" ").filter((ele) => {
+          return ele.length!==0
+        }).length} Minutes to read</p>
         
         <h3>Preview</h3>
         <p className='fs-6'>{text.length>0?text:"Enter something to see a preview"}</p>
